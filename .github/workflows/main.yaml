@@ -1,0 +1,25 @@
+#    docker build -t crowdcountcr.azurecr.io/crowdcount_imagecontrol:latest  .
+#    az acr login --name crowdcountcr
+#    docker push crowdcountcr.azurecr.io/crowdcount_imagecontrol:latest
+#    kubectl apply -f .\CrowdCountImageControl.yaml
+
+
+on:
+  push:
+name: hashito
+jobs:
+  test:
+    name: CI Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: crowdcountcr.azurecr.io/testtarou:latest
+          tag_with_ref: true
+          tag_with_sha: tru
