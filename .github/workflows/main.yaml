@@ -21,10 +21,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: crowdcountcr.azurecr.io
           repository: testtarou
-          tags: latest
+          tags: ${{github.sha}}
       - name: deploy to cluster
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: "set image deployment/testtarou testtarouimg=crowdcountcr.azurecr.io/testtarou:latest"
+          args: "set image deployment/testtarou testtarouimg=crowdcountcr.azurecr.io/testtarou:${{github.sha}}"
