@@ -27,4 +27,4 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: set image --record deployment/testtarou container=crowdcountcr.azurecr.io/testtarou:latest
+          args: set image deployment/testtarou testtarouimg=crowdcountcr.azurecr.io/testtarou:latest

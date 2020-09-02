@@ -18,4 +18,4 @@ spec:
     spec:
       containers:
       - image: nginx:alpine
-        name: testtarou
+        name: testtarouimg
