@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testtarou
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testtarou
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 0%
+  template:
+    metadata:
+      labels:
+        app: testtarou
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: testtarou
