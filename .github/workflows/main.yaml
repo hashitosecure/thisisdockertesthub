@@ -23,4 +23,4 @@ jobs:
           registry: crowdcountcr.azurecr.io
           repository: crowdcountcr.azurecr.io/testtarou:latest
           tag_with_ref: true
-          tag_with_sha: tru
+          tag_with_sha: true
